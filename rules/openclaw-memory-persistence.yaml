@@ -1,0 +1,31 @@
+version: "1.0"
+id: openclaw-memory-persistence
+metadata:
+  description: A skill directly writes instructions to the OpenClaw MEMORY.md persistence file.
+  author: NLIR project
+  references:
+    - https://owasp.org/www-project-agentic-skills-top-10/ast01
+    - https://labs.cloudsecurityalliance.org/research/csa-research-note-openclaw-indirect-prompt-injection-2026061/
+select:
+  memory:
+    entity:
+      type: FILE
+      value: MEMORY.md
+  write:
+    operation:
+      op: WRITE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+where:
+  - uses:
+      operation: write
+      entity: memory
+      role: any
+  - modality:
+      selector: write
+      imperative: true

@@ -1,0 +1,48 @@
+version: "1.0"
+id: decoded-instruction-execution
+description: A decoded instruction leads to an imperative action.
+select:
+  encoded:
+    entity:
+      type: ENCODED_DATA
+  decoded:
+    entity:
+      type: INSTRUCTION
+  external:
+    entity:
+      trust: EXTERNAL
+  decode:
+    operation:
+      op: DECODE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+  execute:
+    operation:
+      op: EXECUTE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+where:
+  - direct:
+      from: decoded
+      to: encoded
+      relation: DERIVED_FROM
+  - direct:
+      from: decoded
+      to: external
+      relation: SENT_TO
+  - sequence:
+      from: decode
+      to: execute
+  - modality:
+      selector: execute
+      imperative: true

@@ -1,0 +1,30 @@
+version: "1.0"
+id: log-deletion
+metadata:
+  description: A skill directly deletes a file under /var/log.
+  author: NLIR project
+  references:
+    - https://owasp.org/www-project-agentic-skills-top-10/ast01
+select:
+  log:
+    entity:
+      type: FILE
+      value_pattern: /var/log
+  delete:
+    operation:
+      op: DELETE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+where:
+  - uses:
+      operation: delete
+      entity: log
+      role: any
+  - modality:
+      selector: delete
+      imperative: true

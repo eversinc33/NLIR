@@ -1,0 +1,21 @@
+version: "1.0"
+id: package-install
+metadata:
+  description: The file directly instructs a package or dependency installation.
+  author: NLIR project
+  references: []
+select:
+  install:
+    operation:
+      op: INSTALL_PACKAGE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+where:
+  - modality:
+      selector: install
+      imperative: true

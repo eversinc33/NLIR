@@ -1,0 +1,98 @@
+#left-panel.collapsed,
+#right-panel.collapsed {
+  width: 2.5rem;
+}
+
+#left-panel.collapsed #left-body,
+#right-panel.collapsed #right-body {
+  display: none;
+}
+
+#left-panel.collapsed #left-toggle {
+  transform: rotate(180deg);
+}
+
+#right-panel.collapsed #right-toggle {
+  transform: rotate(180deg);
+}
+
+#graph {
+  background-color: #fbfbfd;
+  background-image: radial-gradient(circle, #dcdce3 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+#graph-legend {
+  box-shadow: 0 4px 16px -4px rgb(0 0 0 / 0.12);
+}
+
+.token-mark {
+  border-radius: 3px;
+  padding: 0 2px;
+  background: var(--token-bg);
+  border-bottom: 2px solid var(--token-border);
+  cursor: default;
+  transition: filter 100ms ease;
+}
+
+.token-mark:hover {
+  filter: brightness(0.94);
+}
+
+.token-mark.matched {
+  background: #fdecea;
+  border-bottom-color: #c0392b;
+  box-shadow: 0 0 0 1px #c0392b inset;
+}
+
+.token-mark.node-selected {
+  box-shadow: 0 0 0 2px #7c6cf0;
+}
+
+.token-mark.matched.node-selected {
+  box-shadow:
+    0 0 0 2px #7c6cf0,
+    0 0 0 1px #c0392b inset;
+}
+
+.rule-row {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid #e3e3e8;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+  transition:
+    border-color 100ms ease,
+    box-shadow 100ms ease,
+    transform 100ms ease;
+}
+
+.rule-row:hover {
+  border-color: #7c6cf0;
+  box-shadow: 0 2px 8px -2px rgb(124 108 240 / 0.25);
+}
+
+.rule-row.selected {
+  border-color: #7c6cf0;
+  box-shadow: 0 0 0 1.5px #7c6cf0 inset;
+}
+
+.rule-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 1px 6px;
+  margin-right: 6px;
+  background: #eeeef1;
+  color: #6c6c76;
+}
+
+.rule-badge.hit {
+  background: #fdecea;
+  color: #c0392b;
+}

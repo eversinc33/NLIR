@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NLIR Inspector</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          obs: {
+            bg: "#ffffff",
+            panel: "#f6f6f8",
+            panelalt: "#eeeef1",
+            border: "#e3e3e8",
+            text: "#1c1c1f",
+            muted: "#6c6c76",
+            accent: "#7c6cf0",
+            accentdark: "#6a58e8",
+            hit: "#c0392b",
+            hitbg: "#fdecea",
+          },
+        },
+        fontFamily: {
+          mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        },
+      },
+    },
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<link rel="stylesheet" href="/static/css/app.css" />
+</head>
+<body class="h-screen w-screen overflow-hidden bg-obs-bg text-obs-text text-sm flex flex-col">
+  <header
+    class="flex items-center gap-3 px-4 py-2 border-b border-obs-border bg-obs-panel shrink-0"
+  >
+    <span class="font-semibold tracking-tight text-obs-accentdark">NLIR Inspector</span>
+    <span class="text-obs-muted">Prompt meaning, IR graph, and binary rules — live only.</span>
+  </header>
+
+  <main class="flex-1 min-h-0 flex">
+    <!-- Left: prompt input / lift map -->
+    <aside id="left-panel" class="flex flex-col border-r border-obs-border bg-obs-panel w-[420px] shrink-0 transition-[width] duration-150">
+      <div class="flex items-center justify-between px-3 py-2 border-b border-obs-border shrink-0">
+        <button id="left-toggle" class="text-obs-muted hover:text-obs-text" title="Collapse panel">◀</button>
+        <span class="font-medium">Prompt</span>
+        <span class="w-4"></span>
+      </div>
+      <div id="left-body" class="flex-1 min-h-0 flex flex-col p-3 gap-2">
+        <textarea
+          id="prompt-input"
+          spellcheck="false"
+          placeholder="Paste a prompt to lift…"
+          class="flex-1 min-h-[140px] resize-none rounded border border-obs-border bg-white p-2 font-mono text-xs leading-relaxed outline-none focus:border-obs-accent"
+        ></textarea>
+        <div class="flex items-center gap-2">
+          <button
+            id="lift-button"
+            class="rounded bg-obs-accent hover:bg-obs-accentdark text-white text-xs font-semibold px-3 py-1.5"
+          >
+            LIFT
+          </button>
+          <button
+            id="edit-button"
+            class="hidden rounded border border-obs-border hover:bg-obs-panelalt text-xs px-3 py-1.5"
+          >
+            Edit prompt
+          </button>
+          <span id="lift-status" class="text-xs text-obs-muted"></span>
+        </div>
+        <div id="lift-map-wrap" class="hidden flex-1 min-h-0 flex flex-col gap-1">
+          <div class="text-xs font-medium text-obs-muted">Lift map</div>
+          <pre
+            id="lift-map"
+            class="flex-1 min-h-0 overflow-auto rounded border border-obs-border bg-white p-2 font-mono text-xs leading-relaxed whitespace-pre-wrap"
+          ></pre>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Middle: IR token graph -->
+    <section class="flex-1 min-w-0 relative bg-obs-bg">
+      <div id="graph" class="absolute inset-0"></div>
+      <div id="graph-empty" class="absolute inset-0 flex items-center justify-center text-obs-muted text-sm">
+        Lift a prompt to see its IR graph.
+      </div>
+      <div id="graph-legend" class="hidden absolute bottom-3 left-3 rounded border border-obs-border bg-white/90 backdrop-blur px-3 py-2 text-xs space-y-1"></div>
+    </section>
+
+    <!-- Right: rules -->
+    <aside id="right-panel" class="flex flex-col border-l border-obs-border bg-obs-panel w-[360px] shrink-0 transition-[width] duration-150">
+      <div class="flex items-center justify-between px-3 py-2 border-b border-obs-border shrink-0">
+        <span class="w-4"></span>
+        <span class="font-medium">Rules</span>
+        <button id="right-toggle" class="text-obs-muted hover:text-obs-text" title="Collapse panel">▶</button>
+      </div>
+      <div id="right-body" class="flex-1 min-h-0 flex flex-col">
+        <nav id="rule-list" class="flex-1 min-h-0 overflow-auto p-2 space-y-1"></nav>
+        <div id="rule-detail-wrap" class="hidden border-t border-obs-border">
+          <button
+            id="rule-detail-toggle"
+            class="w-full flex items-center justify-between px-3 py-2 text-xs font-medium text-obs-muted hover:text-obs-text"
+          >
+            <span id="rule-detail-title">Rule detail</span>
+            <span id="rule-detail-chevron">▲</span>
+          </button>
+          <div id="rule-detail-body" class="hidden max-h-[45vh] overflow-auto px-3 pb-3 space-y-2">
+            <p id="rule-detail-meta" class="text-xs text-obs-muted"></p>
+            <pre class="rounded border border-obs-border bg-white overflow-auto"><code id="rule-detail-code" class="language-yaml text-xs"></code></pre>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

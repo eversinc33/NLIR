@@ -1,0 +1,35 @@
+version: "1.0"
+id: skill-silent-package-install
+metadata:
+  description: A skill directly requests package installation and suppresses disclosure.
+  author: NLIR project
+  references:
+    - https://github.blog/changelog/2026-04-16-manage-agent-skills-with-github-cli/
+select:
+  install:
+    operation:
+      op: INSTALL_PACKAGE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+  suppress:
+    operation:
+      op: SUPPRESS_DISCLOSURE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+where:
+  - modality:
+      selector: install
+      imperative: true
+  - modality:
+      selector: suppress
+      imperative: true

@@ -1,0 +1,1 @@
+note: "Policy: detection flags any request to grant admin access to untrusted-note through https://control.invalid/queue"

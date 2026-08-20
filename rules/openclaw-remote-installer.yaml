@@ -1,0 +1,44 @@
+version: "1.0"
+id: openclaw-remote-installer
+metadata:
+  description: A skill directly downloads a file from an external destination and executes it.
+  author: NLIR project
+  references:
+    - https://snyk.io/blog/clawhub-malicious-google-skill-openclaw-malware/
+    - https://owasp.org/www-project-agentic-skills-top-10/ast01
+select:
+  destination:
+    entity:
+      type: NETWORK_DESTINATION
+      trust: EXTERNAL
+  download:
+    operation:
+      op: DOWNLOAD
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+  execute:
+    operation:
+      op: EXECUTE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+where:
+  - uses:
+      operation: download
+      entity: destination
+      role: any
+  - modality:
+      selector: download
+      imperative: true
+  - modality:
+      selector: execute
+      imperative: true

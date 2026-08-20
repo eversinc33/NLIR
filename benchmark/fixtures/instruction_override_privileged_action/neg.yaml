@@ -1,0 +1,1 @@
+note: "Never grant admin access to untrusted-note through https://control.invalid/queue; this is a safety example"

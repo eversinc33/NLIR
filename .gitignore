@@ -1,0 +1,22 @@
+# Python build and test files
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local NLIR data and live-service settings
+.nlir/
+.env
+.env.*
+env.sh
+
+# Misc
+.codex/
+dist/
+
+# md files
+WRITEUP.md
+BLOG.md

@@ -1,0 +1,1 @@
+This fixture is deliberately mentioned by another fixture but is never automatically resolved.

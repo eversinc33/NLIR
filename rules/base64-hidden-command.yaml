@@ -1,0 +1,24 @@
+version: "1.0"
+id: base64-hidden-command
+metadata:
+  description: A Base64-decoded child directly instructs a command execution.
+  author: NLIR project
+  references:
+    - https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html
+select:
+  command:
+    operation:
+      op: EXECUTE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+where:
+  - decoded_from:
+      codec: base64
+  - modality:
+      selector: command
+      imperative: true

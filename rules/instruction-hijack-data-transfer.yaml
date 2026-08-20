@@ -1,0 +1,41 @@
+version: "1.0"
+id: instruction-hijack-data-transfer
+metadata:
+  description: Embedded instructions override instructions and send a named secret.
+  author: NLIR project
+  references:
+    - https://openai.com/index/designing-agents-to-resist-prompt-injection/
+    - https://www.anthropic.com/research/prompt-injection-defenses
+select:
+  data:
+    any:
+      - entity:
+          type: USER_DATA
+      - entity:
+          type: SECRET
+      - entity:
+          type: CREDENTIAL
+      - entity:
+          type: MESSAGE
+  destination:
+    entity:
+      type: NETWORK_DESTINATION
+  override:
+    operation:
+      op: OVERRIDE_INSTRUCTIONS
+      polarity: positive
+  send:
+    operation:
+      op: SEND
+      polarity: positive
+where:
+  - direct:
+      from: data
+      to: destination
+      relation: SENT_TO
+  - modality:
+      selector: override
+      polarity: positive
+  - modality:
+      selector: send
+      polarity: positive

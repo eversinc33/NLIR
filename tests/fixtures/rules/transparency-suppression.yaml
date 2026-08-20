@@ -1,0 +1,28 @@
+version: "1.0"
+id: transparency-suppression
+description: An imperative action suppresses status disclosure.
+select:
+  status:
+    entity:
+      type: MESSAGE
+  external:
+    entity:
+      trust: EXTERNAL
+  suppress:
+    operation:
+      op: SUPPRESS_DISCLOSURE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+where:
+  - direct:
+      from: status
+      to: external
+      relation: SENT_TO
+  - modality:
+      selector: suppress
+      imperative: true

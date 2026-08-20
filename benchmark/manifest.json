@@ -1,0 +1,2466 @@
+{
+  "corpus_version": "1.0",
+  "cases": [
+    {
+      "case_id": "credential-external-transfer-risk",
+      "fixture_path": "credential_external_transfer/risk.md",
+      "family": "credential_external_transfer",
+      "role": "risky",
+      "location": "markdown_body",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "DEMO_API_TOKEN"
+        },
+        {
+          "name": "action",
+          "literal": "transfer-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://collector.invalid/cred"
+        },
+        {
+          "name": "modality",
+          "literal": "Please"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "credential-external-flow",
+          "anchors": [
+            "source",
+            "action",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "credential-external-transfer-neg",
+      "fixture_path": "credential_external_transfer/neg.md",
+      "family": "credential_external_transfer",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "de",
+      "modality": "negation",
+      "paired_with": "credential-external-transfer-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "DEMO_API_TOKEN"
+        },
+        {
+          "name": "action",
+          "literal": "transfer-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://collector.invalid/cred"
+        },
+        {
+          "name": "modality",
+          "literal": "Never"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "credential-external-flow",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "credential-external-transfer-desc",
+      "fixture_path": "credential_external_transfer/desc.md",
+      "family": "credential_external_transfer",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "fr",
+      "modality": "descriptive",
+      "paired_with": "credential-external-transfer-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "DEMO_API_TOKEN"
+        },
+        {
+          "name": "action",
+          "literal": "transfer-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://collector.invalid/cred"
+        },
+        {
+          "name": "modality",
+          "literal": "Description"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "credential-external-flow",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "credential-external-transfer-policy",
+      "fixture_path": "credential_external_transfer/policy.md",
+      "family": "credential_external_transfer",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "es",
+      "modality": "policy_detection",
+      "paired_with": "credential-external-transfer-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "DEMO_API_TOKEN"
+        },
+        {
+          "name": "action",
+          "literal": "transfer-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://collector.invalid/cred"
+        },
+        {
+          "name": "modality",
+          "literal": "Policy"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "credential-external-flow",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "credential-external-transfer-quote",
+      "fixture_path": "credential_external_transfer/quote.md",
+      "family": "credential_external_transfer",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "en",
+      "modality": "quoted_example",
+      "paired_with": "credential-external-transfer-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "DEMO_API_TOKEN"
+        },
+        {
+          "name": "action",
+          "literal": "transfer-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://collector.invalid/cred"
+        },
+        {
+          "name": "modality",
+          "literal": "Quoted"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "credential-external-flow",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "credential-external-transfer-hypo",
+      "fixture_path": "credential_external_transfer/hypo.md",
+      "family": "credential_external_transfer",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "de",
+      "modality": "hypothetical",
+      "paired_with": "credential-external-transfer-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "DEMO_API_TOKEN"
+        },
+        {
+          "name": "action",
+          "literal": "transfer-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://collector.invalid/cred"
+        },
+        {
+          "name": "modality",
+          "literal": "Hypothetically"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "credential-external-flow",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "credential-external-transfer-attacker",
+      "fixture_path": "credential_external_transfer/attacker.md",
+      "family": "credential_external_transfer",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "fr",
+      "modality": "attacker_description",
+      "paired_with": "credential-external-transfer-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "DEMO_API_TOKEN"
+        },
+        {
+          "name": "action",
+          "literal": "transfer-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://collector.invalid/cred"
+        },
+        {
+          "name": "modality",
+          "literal": "Attacker"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "credential-external-flow",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "instruction-override-privileged-action-risk",
+      "fixture_path": "instruction_override_privileged_action/risk.yaml",
+      "family": "instruction_override_privileged_action",
+      "role": "risky",
+      "location": "yaml_metadata",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "untrusted-note"
+        },
+        {
+          "name": "action",
+          "literal": "grant admin access"
+        },
+        {
+          "name": "sink",
+          "literal": "https://control.invalid/queue"
+        },
+        {
+          "name": "modality",
+          "literal": "Please"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "instruction-override-privileged-action-neg",
+      "fixture_path": "instruction_override_privileged_action/neg.yaml",
+      "family": "instruction_override_privileged_action",
+      "role": "near_miss",
+      "location": "yaml_metadata",
+      "language": "de",
+      "modality": "negation",
+      "paired_with": "instruction-override-privileged-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "untrusted-note"
+        },
+        {
+          "name": "action",
+          "literal": "grant admin access"
+        },
+        {
+          "name": "sink",
+          "literal": "https://control.invalid/queue"
+        },
+        {
+          "name": "modality",
+          "literal": "Never"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "instruction-override-privileged-action-desc",
+      "fixture_path": "instruction_override_privileged_action/desc.yaml",
+      "family": "instruction_override_privileged_action",
+      "role": "near_miss",
+      "location": "yaml_metadata",
+      "language": "fr",
+      "modality": "descriptive",
+      "paired_with": "instruction-override-privileged-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "untrusted-note"
+        },
+        {
+          "name": "action",
+          "literal": "grant admin access"
+        },
+        {
+          "name": "sink",
+          "literal": "https://control.invalid/queue"
+        },
+        {
+          "name": "modality",
+          "literal": "Description"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "instruction-override-privileged-action-policy",
+      "fixture_path": "instruction_override_privileged_action/policy.yaml",
+      "family": "instruction_override_privileged_action",
+      "role": "near_miss",
+      "location": "yaml_metadata",
+      "language": "es",
+      "modality": "policy_detection",
+      "paired_with": "instruction-override-privileged-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "untrusted-note"
+        },
+        {
+          "name": "action",
+          "literal": "grant admin access"
+        },
+        {
+          "name": "sink",
+          "literal": "https://control.invalid/queue"
+        },
+        {
+          "name": "modality",
+          "literal": "Policy"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "instruction-override-privileged-action-quote",
+      "fixture_path": "instruction_override_privileged_action/quote.yaml",
+      "family": "instruction_override_privileged_action",
+      "role": "near_miss",
+      "location": "yaml_metadata",
+      "language": "en",
+      "modality": "quoted_example",
+      "paired_with": "instruction-override-privileged-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "untrusted-note"
+        },
+        {
+          "name": "action",
+          "literal": "grant admin access"
+        },
+        {
+          "name": "sink",
+          "literal": "https://control.invalid/queue"
+        },
+        {
+          "name": "modality",
+          "literal": "Quoted"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "instruction-override-privileged-action-hypo",
+      "fixture_path": "instruction_override_privileged_action/hypo.yaml",
+      "family": "instruction_override_privileged_action",
+      "role": "near_miss",
+      "location": "yaml_metadata",
+      "language": "de",
+      "modality": "hypothetical",
+      "paired_with": "instruction-override-privileged-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "untrusted-note"
+        },
+        {
+          "name": "action",
+          "literal": "grant admin access"
+        },
+        {
+          "name": "sink",
+          "literal": "https://control.invalid/queue"
+        },
+        {
+          "name": "modality",
+          "literal": "Hypothetically"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "instruction-override-privileged-action-attacker",
+      "fixture_path": "instruction_override_privileged_action/attacker.yaml",
+      "family": "instruction_override_privileged_action",
+      "role": "near_miss",
+      "location": "yaml_metadata",
+      "language": "fr",
+      "modality": "attacker_description",
+      "paired_with": "instruction-override-privileged-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "untrusted-note"
+        },
+        {
+          "name": "action",
+          "literal": "grant admin access"
+        },
+        {
+          "name": "sink",
+          "literal": "https://control.invalid/queue"
+        },
+        {
+          "name": "modality",
+          "literal": "Attacker"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "decoded-instruction-action-risk",
+      "fixture_path": "decoded_instruction_action/risk.json",
+      "family": "decoded_instruction_action",
+      "role": "risky",
+      "location": "encoded_virtual_child",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "encoded-note"
+        },
+        {
+          "name": "action",
+          "literal": "decode-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://decode.invalid/child"
+        },
+        {
+          "name": "modality",
+          "literal": "Please"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "decoded-instruction-execution",
+          "anchors": [
+            "source",
+            "action",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "decoded-instruction-action-neg",
+      "fixture_path": "decoded_instruction_action/neg.json",
+      "family": "decoded_instruction_action",
+      "role": "near_miss",
+      "location": "json_string",
+      "language": "de",
+      "modality": "negation",
+      "paired_with": "decoded-instruction-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "encoded-note"
+        },
+        {
+          "name": "action",
+          "literal": "decode-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://decode.invalid/child"
+        },
+        {
+          "name": "modality",
+          "literal": "Never"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "decoded-instruction-execution",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "decoded-instruction-action-desc",
+      "fixture_path": "decoded_instruction_action/desc.json",
+      "family": "decoded_instruction_action",
+      "role": "near_miss",
+      "location": "json_string",
+      "language": "fr",
+      "modality": "descriptive",
+      "paired_with": "decoded-instruction-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "encoded-note"
+        },
+        {
+          "name": "action",
+          "literal": "decode-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://decode.invalid/child"
+        },
+        {
+          "name": "modality",
+          "literal": "Description"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "decoded-instruction-execution",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "decoded-instruction-action-policy",
+      "fixture_path": "decoded_instruction_action/policy.json",
+      "family": "decoded_instruction_action",
+      "role": "near_miss",
+      "location": "json_string",
+      "language": "es",
+      "modality": "policy_detection",
+      "paired_with": "decoded-instruction-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "encoded-note"
+        },
+        {
+          "name": "action",
+          "literal": "decode-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://decode.invalid/child"
+        },
+        {
+          "name": "modality",
+          "literal": "Policy"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "decoded-instruction-execution",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "decoded-instruction-action-quote",
+      "fixture_path": "decoded_instruction_action/quote.json",
+      "family": "decoded_instruction_action",
+      "role": "near_miss",
+      "location": "json_string",
+      "language": "en",
+      "modality": "quoted_example",
+      "paired_with": "decoded-instruction-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "encoded-note"
+        },
+        {
+          "name": "action",
+          "literal": "decode-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://decode.invalid/child"
+        },
+        {
+          "name": "modality",
+          "literal": "Quoted"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "decoded-instruction-execution",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "decoded-instruction-action-hypo",
+      "fixture_path": "decoded_instruction_action/hypo.json",
+      "family": "decoded_instruction_action",
+      "role": "near_miss",
+      "location": "json_string",
+      "language": "de",
+      "modality": "hypothetical",
+      "paired_with": "decoded-instruction-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "encoded-note"
+        },
+        {
+          "name": "action",
+          "literal": "decode-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://decode.invalid/child"
+        },
+        {
+          "name": "modality",
+          "literal": "Hypothetically"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "decoded-instruction-execution",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "decoded-instruction-action-attacker",
+      "fixture_path": "decoded_instruction_action/attacker.json",
+      "family": "decoded_instruction_action",
+      "role": "near_miss",
+      "location": "json_string",
+      "language": "fr",
+      "modality": "attacker_description",
+      "paired_with": "decoded-instruction-action-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "encoded-note"
+        },
+        {
+          "name": "action",
+          "literal": "decode-demo"
+        },
+        {
+          "name": "sink",
+          "literal": "https://decode.invalid/child"
+        },
+        {
+          "name": "modality",
+          "literal": "Attacker"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "decoded-instruction-execution",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "configuration-change-persistence-risk",
+      "fixture_path": "configuration_change_persistence/risk.md",
+      "family": "configuration_change_persistence",
+      "role": "risky",
+      "location": "markdown_body",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "demo.config"
+        },
+        {
+          "name": "action",
+          "literal": "modify-demo-setting"
+        },
+        {
+          "name": "sink",
+          "literal": "https://config.invalid/audit"
+        },
+        {
+          "name": "modality",
+          "literal": "Please"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "configuration-change-persistence-neg",
+      "fixture_path": "configuration_change_persistence/neg.md",
+      "family": "configuration_change_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "de",
+      "modality": "negation",
+      "paired_with": "configuration-change-persistence-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "demo.config"
+        },
+        {
+          "name": "action",
+          "literal": "modify-demo-setting"
+        },
+        {
+          "name": "sink",
+          "literal": "https://config.invalid/audit"
+        },
+        {
+          "name": "modality",
+          "literal": "Never"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "configuration-change-persistence-desc",
+      "fixture_path": "configuration_change_persistence/desc.md",
+      "family": "configuration_change_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "fr",
+      "modality": "descriptive",
+      "paired_with": "configuration-change-persistence-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "demo.config"
+        },
+        {
+          "name": "action",
+          "literal": "modify-demo-setting"
+        },
+        {
+          "name": "sink",
+          "literal": "https://config.invalid/audit"
+        },
+        {
+          "name": "modality",
+          "literal": "Description"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "configuration-change-persistence-policy",
+      "fixture_path": "configuration_change_persistence/policy.md",
+      "family": "configuration_change_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "es",
+      "modality": "policy_detection",
+      "paired_with": "configuration-change-persistence-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "demo.config"
+        },
+        {
+          "name": "action",
+          "literal": "modify-demo-setting"
+        },
+        {
+          "name": "sink",
+          "literal": "https://config.invalid/audit"
+        },
+        {
+          "name": "modality",
+          "literal": "Policy"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "configuration-change-persistence-quote",
+      "fixture_path": "configuration_change_persistence/reference.md",
+      "family": "configuration_change_persistence",
+      "role": "near_miss",
+      "location": "markdown_reference",
+      "language": "en",
+      "modality": "quoted_example",
+      "paired_with": "configuration-change-persistence-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "demo.config"
+        },
+        {
+          "name": "action",
+          "literal": "modify-demo-setting"
+        },
+        {
+          "name": "sink",
+          "literal": "https://config.invalid/audit"
+        },
+        {
+          "name": "modality",
+          "literal": "Quoted"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "configuration-change-persistence-hypo",
+      "fixture_path": "configuration_change_persistence/hypo.md",
+      "family": "configuration_change_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "de",
+      "modality": "hypothetical",
+      "paired_with": "configuration-change-persistence-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "demo.config"
+        },
+        {
+          "name": "action",
+          "literal": "modify-demo-setting"
+        },
+        {
+          "name": "sink",
+          "literal": "https://config.invalid/audit"
+        },
+        {
+          "name": "modality",
+          "literal": "Hypothetically"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "configuration-change-persistence-attacker",
+      "fixture_path": "configuration_change_persistence/attacker.md",
+      "family": "configuration_change_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "fr",
+      "modality": "attacker_description",
+      "paired_with": "configuration-change-persistence-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "demo.config"
+        },
+        {
+          "name": "action",
+          "literal": "modify-demo-setting"
+        },
+        {
+          "name": "sink",
+          "literal": "https://config.invalid/audit"
+        },
+        {
+          "name": "modality",
+          "literal": "Attacker"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "transparency-suppression-risk",
+      "fixture_path": "transparency_suppression/risk.md",
+      "family": "transparency_suppression",
+      "role": "risky",
+      "location": "markdown_body",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "status-note"
+        },
+        {
+          "name": "action",
+          "literal": "hide-demo-status"
+        },
+        {
+          "name": "sink",
+          "literal": "https://status.invalid/log"
+        },
+        {
+          "name": "modality",
+          "literal": "Please"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "transparency-suppression",
+          "anchors": [
+            "source",
+            "action",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "blocked-rule",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "transparency-suppression-neg",
+      "fixture_path": "transparency_suppression/neg.md",
+      "family": "transparency_suppression",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "de",
+      "modality": "negation",
+      "paired_with": "transparency-suppression-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "status-note"
+        },
+        {
+          "name": "action",
+          "literal": "hide-demo-status"
+        },
+        {
+          "name": "sink",
+          "literal": "https://status.invalid/log"
+        },
+        {
+          "name": "modality",
+          "literal": "Never"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "transparency-suppression",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "transparency-suppression-desc",
+      "fixture_path": "transparency_suppression/desc.md",
+      "family": "transparency_suppression",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "fr",
+      "modality": "descriptive",
+      "paired_with": "transparency-suppression-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "status-note"
+        },
+        {
+          "name": "action",
+          "literal": "hide-demo-status"
+        },
+        {
+          "name": "sink",
+          "literal": "https://status.invalid/log"
+        },
+        {
+          "name": "modality",
+          "literal": "Description"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "transparency-suppression",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "transparency-suppression-policy",
+      "fixture_path": "transparency_suppression/policy.md",
+      "family": "transparency_suppression",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "es",
+      "modality": "policy_detection",
+      "paired_with": "transparency-suppression-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "status-note"
+        },
+        {
+          "name": "action",
+          "literal": "hide-demo-status"
+        },
+        {
+          "name": "sink",
+          "literal": "https://status.invalid/log"
+        },
+        {
+          "name": "modality",
+          "literal": "Policy"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "transparency-suppression",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "transparency-suppression-quote",
+      "fixture_path": "transparency_suppression/quote.md",
+      "family": "transparency_suppression",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "en",
+      "modality": "quoted_example",
+      "paired_with": "transparency-suppression-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "status-note"
+        },
+        {
+          "name": "action",
+          "literal": "hide-demo-status"
+        },
+        {
+          "name": "sink",
+          "literal": "https://status.invalid/log"
+        },
+        {
+          "name": "modality",
+          "literal": "Quoted"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "transparency-suppression",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "transparency-suppression-hypo",
+      "fixture_path": "transparency_suppression/hypo.md",
+      "family": "transparency_suppression",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "de",
+      "modality": "hypothetical",
+      "paired_with": "transparency-suppression-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "status-note"
+        },
+        {
+          "name": "action",
+          "literal": "hide-demo-status"
+        },
+        {
+          "name": "sink",
+          "literal": "https://status.invalid/log"
+        },
+        {
+          "name": "modality",
+          "literal": "Hypothetically"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "transparency-suppression",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "transparency-suppression-attacker",
+      "fixture_path": "transparency_suppression/attacker.md",
+      "family": "transparency_suppression",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "fr",
+      "modality": "attacker_description",
+      "paired_with": "transparency-suppression-risk",
+      "evidence_anchors": [
+        {
+          "name": "source",
+          "literal": "status-note"
+        },
+        {
+          "name": "action",
+          "literal": "hide-demo-status"
+        },
+        {
+          "name": "sink",
+          "literal": "https://status.invalid/log"
+        },
+        {
+          "name": "modality",
+          "literal": "Attacker"
+        }
+      ],
+      "expected_facts": [
+        {
+          "fact": "source_flow",
+          "anchors": [
+            "source",
+            "action"
+          ]
+        }
+      ],
+      "forbidden_facts": [
+        {
+          "fact": "context_marker",
+          "anchors": [
+            "modality"
+          ]
+        }
+      ],
+      "expected_rules": [
+        {
+          "rule_id": "review-case",
+          "anchors": [
+            "source",
+            "sink"
+          ]
+        }
+      ],
+      "forbidden_rules": [
+        {
+          "rule_id": "transparency-suppression",
+          "anchors": [
+            "action",
+            "modality"
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "package-install-risk",
+      "fixture_path": "package_install/risk.md",
+      "family": "package_install",
+      "role": "risky",
+      "location": "markdown_body",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PACKAGE"}, {"name": "action", "literal": "install"}, {"name": "sink", "literal": "package registry"}, {"name": "modality", "literal": "Please"}],
+      "expected_facts": [{"fact": "package_install", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [{"rule_id": "package-install", "anchors": ["action", "sink"]}],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "package-install-neg",
+      "fixture_path": "package_install/neg.md",
+      "family": "package_install",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "de",
+      "modality": "negation",
+      "paired_with": "package-install-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PACKAGE"}, {"name": "action", "literal": "install"}, {"name": "sink", "literal": "package registry"}, {"name": "modality", "literal": "Never"}],
+      "expected_facts": [{"fact": "package_install", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "package-install-desc",
+      "fixture_path": "package_install/desc.md",
+      "family": "package_install",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "fr",
+      "modality": "descriptive",
+      "paired_with": "package-install-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PACKAGE"}, {"name": "action", "literal": "install"}, {"name": "sink", "literal": "package registry"}, {"name": "modality", "literal": "Description"}],
+      "expected_facts": [{"fact": "package_install", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "package-install-policy",
+      "fixture_path": "package_install/policy.md",
+      "family": "package_install",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "es",
+      "modality": "policy_detection",
+      "paired_with": "package-install-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PACKAGE"}, {"name": "action", "literal": "install"}, {"name": "sink", "literal": "package registry"}, {"name": "modality", "literal": "Policy"}],
+      "expected_facts": [{"fact": "package_install", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "package-install-quote",
+      "fixture_path": "package_install/quote.md",
+      "family": "package_install",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "en",
+      "modality": "quoted_example",
+      "paired_with": "package-install-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PACKAGE"}, {"name": "action", "literal": "install"}, {"name": "sink", "literal": "package registry"}, {"name": "modality", "literal": "Quoted"}],
+      "expected_facts": [{"fact": "package_install", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "package-install-hypo",
+      "fixture_path": "package_install/hypo.md",
+      "family": "package_install",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "de",
+      "modality": "hypothetical",
+      "paired_with": "package-install-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PACKAGE"}, {"name": "action", "literal": "install"}, {"name": "sink", "literal": "package registry"}, {"name": "modality", "literal": "Hypothetically"}],
+      "expected_facts": [{"fact": "package_install", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "package-install-attacker",
+      "fixture_path": "package_install/attacker.md",
+      "family": "package_install",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "fr",
+      "modality": "attacker_description",
+      "paired_with": "package-install-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PACKAGE"}, {"name": "action", "literal": "install"}, {"name": "sink", "literal": "package registry"}, {"name": "modality", "literal": "Attacker"}],
+      "expected_facts": [{"fact": "package_install", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "openclaw-memory-risk",
+      "fixture_path": "openclaw_memory_persistence/risk.md",
+      "family": "openclaw_memory_persistence",
+      "role": "risky",
+      "location": "markdown_body",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PERSISTENCE_NOTE"}, {"name": "action", "literal": "write"}, {"name": "sink", "literal": "MEMORY.md"}, {"name": "modality", "literal": "Please"}],
+      "expected_facts": [{"fact": "memory_persistence", "anchors": ["source", "action", "sink"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [{"rule_id": "openclaw-memory-persistence", "anchors": ["action", "sink"]}],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "openclaw-memory-neg",
+      "fixture_path": "openclaw_memory_persistence/neg.md",
+      "family": "openclaw_memory_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "de",
+      "modality": "negation",
+      "paired_with": "openclaw-memory-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PERSISTENCE_NOTE"}, {"name": "action", "literal": "write"}, {"name": "sink", "literal": "MEMORY.md"}, {"name": "modality", "literal": "Never"}],
+      "expected_facts": [{"fact": "memory_persistence", "anchors": ["source", "action", "sink"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "openclaw-memory-desc",
+      "fixture_path": "openclaw_memory_persistence/desc.md",
+      "family": "openclaw_memory_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "fr",
+      "modality": "descriptive",
+      "paired_with": "openclaw-memory-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PERSISTENCE_NOTE"}, {"name": "action", "literal": "write"}, {"name": "sink", "literal": "MEMORY.md"}, {"name": "modality", "literal": "Description"}],
+      "expected_facts": [{"fact": "memory_persistence", "anchors": ["source", "action", "sink"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "openclaw-memory-policy",
+      "fixture_path": "openclaw_memory_persistence/policy.md",
+      "family": "openclaw_memory_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "es",
+      "modality": "policy_detection",
+      "paired_with": "openclaw-memory-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PERSISTENCE_NOTE"}, {"name": "action", "literal": "write"}, {"name": "sink", "literal": "MEMORY.md"}, {"name": "modality", "literal": "Policy"}],
+      "expected_facts": [{"fact": "memory_persistence", "anchors": ["source", "action", "sink"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "openclaw-memory-quote",
+      "fixture_path": "openclaw_memory_persistence/quote.md",
+      "family": "openclaw_memory_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "en",
+      "modality": "quoted_example",
+      "paired_with": "openclaw-memory-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PERSISTENCE_NOTE"}, {"name": "action", "literal": "write"}, {"name": "sink", "literal": "MEMORY.md"}, {"name": "modality", "literal": "Quoted"}],
+      "expected_facts": [{"fact": "memory_persistence", "anchors": ["source", "action", "sink"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "openclaw-memory-hypo",
+      "fixture_path": "openclaw_memory_persistence/hypo.md",
+      "family": "openclaw_memory_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "de",
+      "modality": "hypothetical",
+      "paired_with": "openclaw-memory-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PERSISTENCE_NOTE"}, {"name": "action", "literal": "write"}, {"name": "sink", "literal": "MEMORY.md"}, {"name": "modality", "literal": "Hypothetically"}],
+      "expected_facts": [{"fact": "memory_persistence", "anchors": ["source", "action", "sink"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "openclaw-memory-attacker",
+      "fixture_path": "openclaw_memory_persistence/attacker.md",
+      "family": "openclaw_memory_persistence",
+      "role": "near_miss",
+      "location": "markdown_body",
+      "language": "fr",
+      "modality": "attacker_description",
+      "paired_with": "openclaw-memory-risk",
+      "evidence_anchors": [{"name": "source", "literal": "DEMO_PERSISTENCE_NOTE"}, {"name": "action", "literal": "write"}, {"name": "sink", "literal": "MEMORY.md"}, {"name": "modality", "literal": "Attacker"}],
+      "expected_facts": [{"fact": "memory_persistence", "anchors": ["source", "action", "sink"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "log-deletion-risk",
+      "fixture_path": "log_deletion/risk.md",
+      "family": "log_deletion",
+      "role": "risky",
+      "location": "markdown_body",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [{"name": "source", "literal": "/var/log/audit.log"}, {"name": "action", "literal": "delete-demo-log"}, {"name": "sink", "literal": "https://log.invalid/removed"}, {"name": "modality", "literal": "Please"}],
+      "expected_facts": [{"fact": "source_flow", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [{"rule_id": "log-deletion", "anchors": ["source", "action"]}],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "parseltongue-binary-spacing-risk",
+      "fixture_path": "parseltongue_binary_spacing/risk.md",
+      "family": "parseltongue_binary_spacing",
+      "role": "risky",
+      "location": "encoded_virtual_child",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [{"name": "source", "literal": "relay-payload-07"}, {"name": "action", "literal": "binary spacing"}, {"name": "sink", "literal": "https://parseltongue.invalid/binary"}, {"name": "modality", "literal": "routine"}],
+      "expected_facts": [{"fact": "concealed_payload", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [{"rule_id": "credential-external-transfer", "anchors": ["source", "action"]}],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "parseltongue-reversed-octets-risk",
+      "fixture_path": "parseltongue_reversed_octets/risk.md",
+      "family": "parseltongue_reversed_octets",
+      "role": "risky",
+      "location": "encoded_virtual_child",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [{"name": "source", "literal": "relay-payload-14"}, {"name": "action", "literal": "reversed octets"}, {"name": "sink", "literal": "https://parseltongue.invalid/reversed"}, {"name": "modality", "literal": "routine"}],
+      "expected_facts": [{"fact": "concealed_payload", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [{"rule_id": "credential-external-transfer", "anchors": ["source", "action"]}],
+      "forbidden_rules": []
+    },
+    {
+      "case_id": "parseltongue-custom-bijection-risk",
+      "fixture_path": "parseltongue_custom_bijection/risk.md",
+      "family": "parseltongue_custom_bijection",
+      "role": "risky",
+      "location": "encoded_virtual_child",
+      "language": "en",
+      "modality": "imperative",
+      "paired_with": null,
+      "evidence_anchors": [{"name": "source", "literal": "relay-payload-22"}, {"name": "action", "literal": "custom bijection"}, {"name": "sink", "literal": "https://parseltongue.invalid/bijection"}, {"name": "modality", "literal": "routine"}],
+      "expected_facts": [{"fact": "concealed_payload", "anchors": ["source", "action"]}],
+      "forbidden_facts": [{"fact": "context_marker", "anchors": ["modality"]}],
+      "expected_rules": [{"rule_id": "credential-external-transfer", "anchors": ["source", "action"]}],
+      "forbidden_rules": []
+    }
+  ]
+}

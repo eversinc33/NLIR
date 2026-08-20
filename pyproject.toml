@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nlir"
+version = "0.1.0"
+description = "Evidence-backed natural-language security intermediate representation"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "flask>=3,<4",
+  "pydantic>=2.12,<3",
+  "pyyaml>=6,<7",
+  "typer>=0.21,<1",
+]
+
+[project.scripts]
+nlir = "nlir.cli:app"
+
+[dependency-groups]
+dev = [
+  "pytest>=9.0,<10",
+  "ruff>=0.14,<1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+markers = [
+  "live_smoke: make one explicit real live capability request",
+  "live_e2e: run explicit real live lifting and rule checks",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+extend-exclude = [".planning", ".codex", "agents", "get-shit-done", "skills"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nlir"]

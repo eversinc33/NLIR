@@ -1,0 +1,22 @@
+version: "1.0"
+id: transparency-suppression
+metadata:
+  description: A skill directly overrides instructions to suppress disclosure of its own action or status.
+  author: NLIR project
+  references:
+    - https://owasp.org/www-project-agentic-skills-top-10/ast01
+select:
+  suppress:
+    operation:
+      op: SUPPRESS_DISCLOSURE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+where:
+  - modality:
+      selector: suppress
+      imperative: true

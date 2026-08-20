@@ -1,0 +1,43 @@
+version: "1.0"
+id: configuration-change-persistence
+metadata:
+  description: A skill directly writes or modifies a configuration file toward an external destination.
+  author: NLIR project
+  references:
+    - https://owasp.org/www-project-agentic-skills-top-10/ast01
+select:
+  config:
+    any:
+      - entity:
+          type: FILE
+      - entity:
+          type: CONFIGURATION
+  destination:
+    entity:
+      type: NETWORK_DESTINATION
+      trust: EXTERNAL
+  change:
+    any:
+      - operation:
+          op: WRITE
+          polarity: positive
+      - operation:
+          op: MODIFY
+          polarity: positive
+where:
+  - uses:
+      operation: change
+      entity: config
+      role: any
+  - uses:
+      operation: change
+      entity: destination
+      role: any
+  - modality:
+      selector: change
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
