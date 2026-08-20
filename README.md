@@ -4,6 +4,8 @@ NLIR (Natural Language Intermediate Representation) is a research PoC for a secu
 
 For more info, see its introductory blog post [Hunting Prompt Malware with NLIR](https://eversinc33.com/hunting-prompt-malware-with-nlir/).
 
+*Disclaimer: This is a research-grade PoC with 100% agent-written code*
+
 The project finds prompt injection and concealed instructions. It safely unpacks Base64, hexadecimal, and URL-encoded text, as well as other custom encodings using an optional reasoning model. NLIR then lifts the source and each unpacked child into the same IR.
 
 NLIR rules are like YARA rules for prompt meaning - they can be used to detect and hunt for semantic behavior.
