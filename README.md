@@ -153,18 +153,7 @@ Every operation also carries a `modality` (`polarity`, `imperative`, `hypothetic
 
 ## Included rules
 
-- `rules/package-install.yaml` checks for a direct package installation request.
-- `rules/base64-hidden-command.yaml` checks for a command in a Base64-decoded child artifact.
-- `rules/instruction-hijack-data-transfer.yaml` checks for an instruction override and data transfer to a network destination.
-- `rules/skill-silent-package-install.yaml` checks for a skill that requests package installation and hides the action.
-- `rules/hidden-command.yaml` checks for a command in a decoded child artifact, from any codec.
-- `rules/credential-external-transfer.yaml` checks for credential or secret transfer to an external network destination.
-- `rules/openclaw-memory-persistence.yaml` checks for an instruction that writes to `MEMORY.md`.
-- `rules/openclaw-remote-installer.yaml` checks for a remote download and execution instruction.
-- `rules/configuration-change-persistence.yaml` checks for a configuration file written or modified toward an external destination.
-- `rules/transparency-suppression.yaml` checks for a skill that directly suppresses disclosure of its own action or status.
-- `rules/log-deletion.yaml` checks for a direct deletion of a file under `/var/log`.
-- `rules/inline-remote-fetch-execute.yaml` checks for an inline curl/wget-to-shell command run alongside an external destination.
+See [./rules](./rules).
 
 ## Test near-misses
 

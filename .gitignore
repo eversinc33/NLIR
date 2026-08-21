@@ -17,6 +17,11 @@ env.sh
 .codex/
 dist/
 
+# skill-sh-scanner output (downloaded skills, lifted IR, reports)
+skill-sh-scanner/data/
+
 # md files
 WRITEUP.md
 BLOG.md
+
+skill-sh-scanner/
