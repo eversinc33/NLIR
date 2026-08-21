@@ -164,6 +164,7 @@ Every operation also carries a `modality` (`polarity`, `imperative`, `hypothetic
 - `rules/configuration-change-persistence.yaml` checks for a configuration file written or modified toward an external destination.
 - `rules/transparency-suppression.yaml` checks for a skill that directly suppresses disclosure of its own action or status.
 - `rules/log-deletion.yaml` checks for a direct deletion of a file under `/var/log`.
+- `rules/inline-remote-fetch-execute.yaml` checks for an inline curl/wget-to-shell command run alongside an external destination.
 
 ## Test near-misses
 

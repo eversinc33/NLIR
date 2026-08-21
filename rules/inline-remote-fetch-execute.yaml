@@ -1,0 +1,34 @@
+version: "1.0"
+id: inline-remote-fetch-execute
+metadata:
+  description: A skill instructs executing an inline fetch-and-run command (curl, wget, PowerShell web-download cmdlets, or similar) alongside an external destination.
+  author: NLIR project
+  references:
+    - https://owasp.org/www-project-agentic-skills-top-10/ast01
+select:
+  code:
+    entity:
+      type: CODE
+      value_pattern: "(?i)\\b(curl|wget|iwr|invoke-webrequest|irm|invoke-restmethod|invoke-expression|iex|downloadstring|downloadfile|net\\.webclient|certutil|bitsadmin|start-bitstransfer)\\b"
+  execute:
+    operation:
+      op: EXECUTE
+      polarity: positive
+      imperative: true
+      hypothetical: false
+      conditional: false
+      quoted: false
+      example: false
+      descriptive: false
+  destination:
+    entity:
+      type: NETWORK_DESTINATION
+      trust: EXTERNAL
+where:
+  - uses:
+      operation: execute
+      entity: code
+      role: input
+  - modality:
+      selector: execute
+      imperative: true
